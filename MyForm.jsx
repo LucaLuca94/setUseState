@@ -27,9 +27,12 @@
 //   function handleResetForm() {
 //     setData(createData);
 //   }
-
+//   function handleLoginFormSubmit(event) {
+//     event.preventDefault()
+//     console.log('login button required', data);
+//   }
 //   return (
-//     <div>
+//     <form onClick={handleLoginFormSubmit}>
 //       <h1>My form</h1>
 //       <input
 //         name="userName"
@@ -48,9 +51,9 @@
 //         checked={data.session}
 //         onChange={handleInputChange}
 //       />
-//       <button disabled={!data.userName || !data.passWord}>Login</button>
+//       <button type= 'submit' disabled={!data.userName || !data.passWord}>Login</button>
 //       <button onClick={handleResetForm}>Reset</button>
 //       <pre>{JSON.stringify(data, null, 2)}</pre>
-//     </div>
+//     </form>
 //   );
 // }
