@@ -4,7 +4,8 @@
 // import { MouseClicker } from "./MouseClicker";
 // import { MyForm } from "./MyForm";
 // import { MyUncontrolledForm } from "./MyUncontrolledForm";
-import { UncontrolledLogin } from "./UncontrolledFormExercise";
+// import { UncontrolledLogin } from "./UncontrolledFormExercise";
+import { FocusableInput } from "./useRef"
 
 export function App() {
   const handleLogin = (data) => {
@@ -16,9 +17,10 @@ export function App() {
 
       <Clock />
        <MouseClicker /> 
-      <MyForm />
-      <MyUncontrolledForm /> */}
-      <UncontrolledLogin onLogin={handleLogin} />
+       <MyUncontrolledForm /> */}
+      {/* <UncontrolledLogin onLogin={handleLogin} /> */}
+      {/* <MyForm /> */}
+      < FocusableInput />
     </div>
   );
 }
