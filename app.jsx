@@ -10,18 +10,17 @@
 // import { Color } from "./ListExercise";
 // import { Colors } from "./ListExercise"
 import { Welcome } from "./welcome";
-import {CounterDisplay} from "./counterDispaly"
+import { CounterDisplay } from "./counterDispaly";
 import "./index.module.scss";
 import { InteractiveWelcome, Login, Uwelcome } from "./FormExercise";
-
-
-
+import { Container } from "./Container";
+// import classes from "./index.module.scss"
 export function App() {
   const handleLogin = (data) => {
     console.log("Dati login:", data);
   };
   return (
-    <div className="app">
+    <Container title={<h1>These are my children...</h1>}>
       {/* <Counter initialvalue={0} incrementValue={1} /> */}
       {/* 
       // <Clock />
@@ -53,6 +52,6 @@ export function App() {
       <InteractiveWelcome />
       <Login onLogin={(data) => console.log(data)} />
       <Uwelcome name="John Doe" />
-    </div>
+    </Container>
   );
 }
