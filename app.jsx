@@ -19,6 +19,8 @@ import { LanguageContext } from "./LanguageContext";
 import { useState } from "react";
 // import { HelloWorld } from "./helloworld";
 import { Hello } from "./HelloComponent";
+import { GithubUser, GithubUsers } from "./GithubUser";
+
 export function App() {
   const handleLogin = (data) => {
     console.log("Dati login:", data);
@@ -34,14 +36,13 @@ export function App() {
       <button onClick={() => handleSetLanguage("en")}>EN</button> */}
       <Container title={<h1>These are my children...</h1>}>
         <LanguageContext.Provider value={Language}>
-          <select
-            onChange={() => handleSetLanguage("italiano")}
-            
-          >
+          <select onChange={() => handleSetLanguage("italiano")}>
             <option value="inglese">Inglese</option>
             <option value="italiano">Italiano</option>
           </select>
           <Hello />
+          <GithubUser username="gianmarcotoso" />
+          <GithubUsers />
           {/* <HelloWorld /> */}
           {/* <Counter initialvalue={0} incrementValue={1} /> */}
           {/* 

@@ -10,3 +10,13 @@ createRoot(document.getElementById("root")).render(
     <App />
   </StrictMode>
 );
+
+
+
+// fetch('https://api.github.com/users/gianmarcotoso').then(response => {
+//   console.log(`Response status: ${response.status}`)
+//   return response.json()
+// })
+// .then(json => {
+//   console.log(json);
+// })
