@@ -8,36 +8,19 @@
 //   elenco, dove ogni elemento dell'elenco è un componente GithubUser.
 //    Questi componenti prenderanno il nome utente come oggetto.
 
+import { useGithubUser } from "./UseGithubUser";
 
 
 
-import { useEffect } from "react";
-import { useState } from "react";
+
+
+
 
 export function GithubUser({ username}) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  useEffect(() => {
-    setLoading(true)
-    fetch(`https://api.github.com/users/${username}`)
-      .then((response) => {
-        if (response.status !== 200) {
-           setError(new Error("User not found")) 
-        }
-        return response.json();
-      })
-      .then((json) => {
-        console.log(json);
-
-        setLoading(false)
-        setData(json);
-      })
-      .catch(error => {
-        setError(error)
-      })
-  }, [username]);
+ const { data, loading, error } = useGithubUser(username);
+ 
   return <div>
+    <button>Load User Data</button>
     {loading && <h1>Loading...</h1>}
     {error && <h1>There has been an error</h1>}
     {data && <h1>{data.name}</h1>}
@@ -46,30 +29,30 @@ export function GithubUser({ username}) {
     </div>
 }
 
-export const GithubUsers = () => {
-  const [username, setUsername] = useState("");
+// export const GithubUsers = () => {
+//   const [username, setUsername] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (username) {
-      setUsers([...users, username]);
-      setUsername("");
-    }
-  };
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     if (username) {
+//       setUsers([...users, username]);
+//       setUsername("");
+//     }
+//   };
 
         
-    return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-            placeholder="Inserisci nome utente"
-          />
-          <button type="submit">Cerca Utente</button>
-        </form>
-       {/* non sono riuscito a creare l'elenco */}
-      </div>
-    );
-}
+//     return (
+//       <div>
+//         <form onSubmit={handleSubmit}>
+//           <input
+//             type="text"
+//             value={username}
+//             onChange={(event) => setUsername(event.target.value)}
+//             placeholder="Inserisci nome utente"
+//           />
+//           <button type="submit">Cerca Utente</button>
+//         </form>
+//        {/* non sono riuscito a creare l'elenco */}
+//       </div>
+//     );
+// }

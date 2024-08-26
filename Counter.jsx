@@ -1,35 +1,32 @@
-// import { useEffect, useState } from "react"
-// import classes from "./Counter.module.scss"
+import { UseCounter } from "./UseCounter";
 
-// export function Counter({ initialvalue = 0, incrementValue = 1 }) {
+
+export function Counter({ initialValue = 0, incrementValue = 1 }) {
 //   const [counter, setCounter] = useState(initialvalue);
 
-//   useEffect(() => {
-//     console.log(`The value of this counter is ${counter}`);
-//     /* Sto usando la modalità rigorosa quindi ho aggiunto una funzione di pulizia */
-//     return () => {
-//       console.log(`The value of this counter was ${counter}`);
-//     };
-//   }, [counter]);
+  
 //   function handleCounterIncrement() {
-//     setCounter(counter + incrementValue);
+//     setCounter((c) => c + 1);
 //   }
 //   function handleCounterDecrement() {
-//     setCounter(counter - incrementValue);
+//     setCounter((c) => c - 1);
 //   }
 //   function handleCounterReset() {
 //     setCounter(initialvalue);
 //   }
-//   return (
-//     <div>
-//       <p>I have counted to {counter}</p>
-//       <button className= {classes.button} onClick={handleCounterIncrement}>Increment</button>
-//       <button className= {classes.button} onClick={handleCounterDecrement}>Decrement</button>
-//       <button className= {classes.button} onClick={handleCounterReset}>Reset</button>
-//     </div>
-//   );
-// }
-// // export function  CounterDisplay(counter) {
+
+
+const {counter, onIncrement, onDecrement, onReset} = UseCounter(initialValue)
+  return (
+    <div>
+      <p>I have counted to {counter}</p>
+      <button className= 'button' onClick={onIncrement}>Increment</button>
+      <button className= 'button' onClick={onDecrement}>Decrement</button>
+      <button className= 'button' onClick={onReset}>Reset</button>
+    </div>
+  );
+}
+// export function  CounterDisplay(counter) {
    
-// //   return <h2>{counter}</h2>
-// // }
+//   return <h2>{counter}</h2>
+// }
